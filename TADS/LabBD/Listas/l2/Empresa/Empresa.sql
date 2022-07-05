@@ -1,0 +1,47 @@
+CREATE SCHEMA Empresa;
+USE Empresa;
+
+CREATE TABLE CLIENTE(
+    Num_cliente INT PRIMARY KEY,
+    Nome_cliente VARCHAR(30) NOT NULL,
+    Cidade VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE PEDIDO(
+    Num_pedido INT PRIMARY KEY,
+    Data_pedido DATE NOT NULL,
+    Num_cliente INT,
+    Preco_total FLOAT NOT NULL,
+
+    CONSTRAINT FK_PEDIDO_CLIENTE FOREIGN KEY (Num_cliente) REFERENCES CLIENTE(Num_cliente)
+);
+
+CREATE TABLE ITEM(
+    Num_item INT PRIMARY KEY,
+    Preco_unitario FLOAT NOT NULL
+);
+
+CREATE TABLE ITEM_PEDIDO(
+    Num_pedido INT,
+    Num_item INT,
+    Quantidade INT NOT NULL,
+
+    CONSTRAINT FK_ITEM_PEDIDO_PEDIDO FOREIGN KEY (Num_pedido) REFERENCES PEDIDO(Num_pedido),
+    CONSTRAINT FK_ITEM_PEDIDO_ITEM FOREIGN KEY (Num_item) REFERENCES ITEM(Num_item),
+    
+    CONSTRAINT PK_ITEM_PEDIDO PRIMARY KEY (Num_pedido, Num_item)
+);
+
+CREATE TABLE DEPOSITO(
+    Num_deposito INT PRIMARY KEY,
+    Cidade VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE EXPEDICAO(
+    Num_pedido INT PRIMARY KEY,
+    Num_deposito INT,
+    Data_envio DATE NOT NULL,
+
+    CONSTRAINT FK_EXPEDICAO_PEDIDO FOREIGN KEY (Num_pedido) REFERENCES PEDIDO(Num_pedido),
+    CONSTRAINT FK_EXPEDICAO_DEPOSITO FOREIGN KEY (Num_deposito) REFERENCES DEPOSITO(Num_deposito)
+);
