@@ -1,0 +1,62 @@
+<head>
+    <meta charset="UTF-8" http-equiv="Content-Security-Policy"
+    content="default-src *;
+           script-src 'self' 'unsafe-inline' 'unsafe-eval'
+                       127.0.0.1:*;"/>
+    <link rel="stylesheet" href="styles.css">
+    <script src="funcoes.js"></script>
+  
+  
+  </head>
+  
+  <body>
+    <label>CALCULADORA</label> <br>
+  
+    <div>
+  
+      <input class="Input" type="text" id="expressao"> <br> <br>
+      <label>RESULTADO</label> <br>
+      <div id="result"></div> <br> <br>
+      <div class="Grade">
+        <button class="Button" onclick="escreve('1')">1</button>
+        <button class="Button" onclick="escreve('2')">2</button>
+        <button class="Button" onclick="escreve('3')">3</button>
+        <button class="Button" onclick="escreve('+')">+</button>
+  
+      </div>
+      <div class="Grade">
+        <button class="Button" onclick="escreve('4')">4</button>
+        <button class="Button" onclick="escreve('5')">5</button>
+        <button class="Button" onclick="escreve('6')">6</button>
+        <button class="Button" onclick="escreve('-')">-</button>
+  
+      </div>
+      <div class="Grade">
+        <button class="Button " onclick="escreve('7')">7</button>
+        <button class="Button" onclick="escreve('8')">8</button>
+        <button class="Button" onclick="escreve('9')">9</button>
+        <button class="Button" onclick="escreve('*')">*</button>
+  
+      </div>
+      <div class="Grade">
+  
+        <button class="Button" onclick="escreve('2√')">√</button>
+  
+        <button class="Button" onclick="escreve('/')">/</button>
+        <button class="Button" onclick="escreve('^')">^</button>
+        <button class="Button" onclick="escreve('!')">!</button>
+      </div>
+      <div>
+        <br>
+        <button class="Button" onclick="escreve('<-')">
+          </button>
+            <button class="Button" onclick="f()">Calcular</button>
+  
+      </div>
+  
+  
+  
+  
+  
+  
+  </body>
